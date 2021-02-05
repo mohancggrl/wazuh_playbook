@@ -1,0 +1,22 @@
+---
+- name: install rpm package
+  shell: rpm --import http://packages.wazuh.com/key/GPG-KEY-WAZUH
+
+- name: Copy Ephel
+  copy: 
+    src: files/wazuh.repo
+    dest: "{{ Ephel_repo }}/wazuh.repo"
+    
+  
+- name: Install cobbler
+  package:
+    name: wazuh-agent
+    state: present
+  environment:
+    WAZUH_MANAGER: "{{ WAZUH_MANAGER }}"
+    WAZUH_REGISTRATION_PASSWORD: "{{ WAZUH_REGISTRATION_PASSWORD }}"
+
+- name: start service
+  service:
+    name: wazuh-agent
+    state: started

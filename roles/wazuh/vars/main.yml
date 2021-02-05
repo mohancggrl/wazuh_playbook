@@ -1,0 +1,4 @@
+---
+WAZUH_MANAGER: "a93e582ac22d.cloud.wazuh.com"
+WAZUH_REGISTRATION_PASSWORD: "UYijoTbxvaml5dWnLmhYDYi8RRyJYYr5"
+Ephel_repo: "/etc/yum.repos.d"
